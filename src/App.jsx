@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Quiz from './lib/Quiz';
-import quiz from './quiz_gabby';
+import quiz from './quiz_mindcraft';
 
 const App = () => {
   const [quizId, setQuizId] = useState('quiz');
