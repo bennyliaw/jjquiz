@@ -8,8 +8,8 @@ const quiz =  {
   "quizTitle": "Gabbys",
   "quizSynopsis": "Gabby's Dollhouse Trivia Game Questions v1",
   "nrOfQuestions" : "10",
-  "defaultMessageForCorrectAnswer": "Cat-tastic!",
-  "defaultMessageForIncorrectAnswer": "Murtastic!",
+  "defaultMessageForCorrectAnswer": [ "Yes!", "Correct!", "Cat-tastic!" ],
+  "defaultMessageForIncorrectAnswer": [ "Wrong answer", "Murtastic!" ],
   "questions": [
     {
       "question": "What is Gabby's magical cat's name?",
