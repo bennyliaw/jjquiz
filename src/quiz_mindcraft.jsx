@@ -7,9 +7,18 @@ const segment = {
 const quiz =  {
   "quizTitle": "Mindcraft",
   "quizSynopsis": "Mindcraft Trivia Game Questions v1",
-  "nrOfQuestions" : "20",
-  "defaultMessageForCorrectAnswer": "Well done, Steve!",
-  "defaultMessageForIncorrectAnswer": "Something went wrong",
+  "nrOfQuestions": "20",
+  "defaultPoint": "10",
+  "defaultMessageForCorrectAnswer": [
+    "Well done, Steve!",
+    "Good job!",
+    "Keep calm and ssssurvive!",
+  ],
+  "defaultMessageForIncorrectAnswer": [
+    "Something went wrong", 
+    "Glitched",
+    "Ouch",
+  ],
   "questions": [
     {
       "question": "What is the main objective in Minecraft?",

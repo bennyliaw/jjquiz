@@ -1,19 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Explanation from './Explanation';
-
-const renderMessageForCorrectAnswer = (question, quiz) => {
-  const defaultMessage = 'You are correct. Please click Next to continue.';
-  return question.messageForCorrectAnswer || quiz.defaultMessageForCorrectAnswer || defaultMessage;
-};
-
-const renderMessageForIncorrectAnswer = (question, quiz) => {
-  const defaultMessage = 'Incorrect answer. Please try again.';
-  return question.messageForIncorrectAnswer || quiz.defaultMessageForIncorrectAnswer || defaultMessage;
-};
+import { randomOrSelf } from './helpers';
 
 function InstantFeedback({
-  showInstantFeedback, incorrectAnswer, correctAnswer, question, onQuestionSubmit, userAnswer, quiz,
+  showInstantFeedback, incorrectAnswer, correctAnswer, question, onQuestionSubmit, userAnswer, quiz, buttons
 }) {
+  const [messageForCorrectAnswer, setMessageForCorrectAnswer] = useState("");
+  const [messageForIncorrectAnswer, setMessageForIncorrectAnswer] = useState("");
+
+  useEffect(() => {
+    const defaultMessageForCorrect = 'You are correct. Please click Next to continue.';
+    const defaultMessageForIncorrect = 'Incorrect answer. Please try again.';
+
+    setMessageForCorrectAnswer(question.messageForCorrectAnswer || randomOrSelf(quiz.defaultMessageForCorrectAnswer, defaultMessageForCorrect));
+    setMessageForIncorrectAnswer(question.messageForIncorrectAnswer || randomOrSelf(quiz.defaultMessageForIncorrectAnswer, defaultMessageForIncorrect));
+
+
+  }, [question, correctAnswer, incorrectAnswer, buttons]);
+  
   useEffect(() => {
     if (onQuestionSubmit && (correctAnswer || incorrectAnswer)) {
       onQuestionSubmit({ question, userAnswer, isCorrect: correctAnswer });
@@ -23,11 +27,11 @@ function InstantFeedback({
   return (
     <>
       {incorrectAnswer && showInstantFeedback
-            && <div className="alert incorrect">{renderMessageForIncorrectAnswer(question, quiz)}</div>}
+            && <div className="alert incorrect">{messageForIncorrectAnswer}</div>}
       {correctAnswer && showInstantFeedback
             && (
             <div className="alert correct">
-              {renderMessageForCorrectAnswer(question, quiz)}
+              {messageForCorrectAnswer}
               <Explanation question={question} isResultPage={false} />
             </div>
             )}

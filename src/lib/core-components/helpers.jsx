@@ -6,6 +6,14 @@ export const rawMarkup = (data) => {
   return { __html: snarkdown(sanitizer(data)) };
 };
 
+export const randomOrSelf = (items, defValue) => {
+  if (Array.isArray(items)) {
+    return items[Math.floor(Math.random() * items.length)]
+  } else {
+    return items || defValue
+  }
+}
+
 export const checkAnswer = (index, correctAnswer, answerSelectionType, answers, {
   userInput,
   userAttempt,

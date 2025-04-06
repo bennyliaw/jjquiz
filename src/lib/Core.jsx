@@ -432,7 +432,7 @@ function Core({
                     activeQuestion && activeQuestion.question
                   } ${appLocale.marksOfQuestion.replace(
                     '<marks>',
-                    activeQuestion.point,
+                    activeQuestion.point || quiz.defaultPoint,
                   )}`,
                 )}
               />
@@ -454,6 +454,7 @@ function Core({
                   onQuestionSubmit={onQuestionSubmit}
                   userAnswer={[...userInput].pop()}
                   quiz={quiz}
+                  buttons={buttons}
                 />
               </div>
               {activeQuestion && renderAnswers(activeQuestion, buttons)}
