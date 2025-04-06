@@ -6,13 +6,13 @@ const App = () => {
   const [quizResult, setQuizResult] = useState();
 
   return (
-    <div style={{ margin: 'auto', width: '100%' }}>
+    <div style={{ margin: 'auto', width: '100%', maxWidth: '480px' }}>
       <Quiz
         quiz={quiz}
         shuffle
         shuffleAnswer
         showInstantFeedback
-        // continueTillCorrect
+        continueTillCorrect
         onComplete={setQuizResult}
         onQuestionSubmit={(obj) => console.log('user question results:', obj)}
         // disableSynopsis
