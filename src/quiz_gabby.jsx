@@ -7,12 +7,24 @@ const segment = {
 const quiz =  {
   "quizTitle": "Gabbys",
   "quizSynopsis": "Gabby's Dollhouse Trivia Game Questions v1",
-  "nrOfQuestions" : "10",
-  "defaultMessageForCorrectAnswer": [ "Yes!", "Correct!", "Cat-tastic!" ],
-  "defaultMessageForIncorrectAnswer": [ "Wrong answer", "Murtastic!" ],
+  "nrOfQuestions": "10",
+  "defaultPoint": "10",
+  "defaultMessageForCorrectAnswer": [ 
+    "Paw-tastic!", 
+    "Pawsome!", 
+    "Mer-tastic!", 
+    "Cat-tastic!" 
+  ],
+  "defaultMessageForIncorrectAnswer": [ 
+    "Wrong answer", 
+    "Murtastic!",
+    "Oh dear! Don't cry, MerCat.",
+    "Yikes",
+  ],
   "questions": [
     {
       "question": "What is Gabby's magical cat's name?",
+      "questionPic": "https://www.dreamworks.com/storage/cms-uploads/pandy-hero2.png",
       "questionType": "text",
       "answers": [
         "Cakey Cat",
@@ -20,11 +32,11 @@ const quiz =  {
         "Mercat",
         "Pillow Cat"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
       "question": "What does Gabby say to enter the dollhouse?",
+      "questionPic": "https://www.toysrus.com.sg/dw/image/v2/BDGJ_PRD/on/demandware.static/-/Sites-master-catalog-toysrus/default/dw70279878/e/4/6/2/e462009e90aa72ce2654adf84439104a42f09206_43303Gaddy_doll_house_pkt.jpg?sw=500&sh=500&q=75",
       "questionType": "text",
       "answers": [
         "\"Abracadabra!\"",
@@ -32,11 +44,11 @@ const quiz =  {
         "\"Magic dollhouse, appear!\"",
         "\"Open sesame!\""
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
       "question": "Cakey Cat is made of:",
+      "questionPic": "https://www.dreamworks.com/storage/cms-uploads/cakey-hero2.png",
       "questionType": "text",
       "answers": [
         "Ice cream",
@@ -44,11 +56,11 @@ const quiz =  {
         "Candy",
         "Cheese"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
       "question": "Who is half-cat, half-mermaid?",
+      "questionPic": "https://m.media-amazon.com/images/I/816yK53XH4L._AC_SL1500_.jpg",
       "questionType": "text",
       "answers": [
         "Baby Box",
@@ -56,7 +68,6 @@ const quiz =  {
         "Carlita",
         "Kitty Fairy"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -68,11 +79,11 @@ const quiz =  {
         "A unicorn",
         "A mouse"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
       "question": "What is Gabby's tiny dinosaur friend's name?",
+      "questionPic": "https://www.dreamworks.com/storage/cms-uploads/carlita-hero.png",
       "questionType": "text",
       "answers": [
         "Dino",
@@ -80,7 +91,6 @@ const quiz =  {
         "Rex",
         "Tiny"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -92,11 +102,11 @@ const quiz =  {
         "Sparkle dust",
         "Golden key"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
       "question": "Who is always sleepy?",
+      "questionPic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqDo62EJ_hSz0RYsZ8yjZxRxQrF11IN_dj0w&s",
       "questionType": "text",
       "answers": [
         "Pillow Cat",
@@ -104,7 +114,6 @@ const quiz =  {
         "Captain Cat",
         "Professor CatBug"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -116,7 +125,6 @@ const quiz =  {
         "Sparkle Tail",
         "Star Hooves"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -128,7 +136,6 @@ const quiz =  {
         "Magic spell",
         "Stickers"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -140,7 +147,6 @@ const quiz =  {
         "Beat Cat",
         "Groovy Kitty"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -152,7 +158,6 @@ const quiz =  {
         "Dollhouse chef",
         "Gardener"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -164,7 +169,6 @@ const quiz =  {
         "Hamster",
         "Bird"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -176,7 +180,6 @@ const quiz =  {
         "Shadow",
         "Mittens"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -188,7 +191,6 @@ const quiz =  {
         "Glue Kitty",
         "Scissor Paws"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -200,7 +202,6 @@ const quiz =  {
         "Pirate Whiskers",
         "Scallywag Cat"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -212,7 +213,6 @@ const quiz =  {
         "Flash Kitty",
         "Smiley Cat"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -224,7 +224,6 @@ const quiz =  {
         "Gardening",
         "Cooking"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -236,7 +235,6 @@ const quiz =  {
         "The fastest",
         "The smallest"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -248,7 +246,6 @@ const quiz =  {
         "Spike Kitty",
         "Desert Cat"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -260,7 +257,6 @@ const quiz =  {
         "Dig",
         "Sing"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -272,7 +268,6 @@ const quiz =  {
         "DJ Catnip",
         "Carl the Cat"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -284,7 +279,6 @@ const quiz =  {
         "A fairy",
         "A mermaid"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -296,7 +290,6 @@ const quiz =  {
         "Under her bed",
         "In the backyard"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -308,7 +301,6 @@ const quiz =  {
         "Twinkle sounds",
         "Purring"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -320,7 +312,6 @@ const quiz =  {
         "Purple",
         "Blue"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -332,7 +323,6 @@ const quiz =  {
         "Guitar",
         "Drums"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -344,7 +334,6 @@ const quiz =  {
         "A paintbrush",
         "A spoon"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -356,7 +345,6 @@ const quiz =  {
         "In a hammock",
         "On a shelf"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -368,7 +356,6 @@ const quiz =  {
         "Clay",
         "Yarn"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -380,7 +367,6 @@ const quiz =  {
         "Sushi",
         "Tacos"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -392,7 +378,6 @@ const quiz =  {
         "9",
         "12"
       ],
-      "point": "10",
       "correctAnswer": "3"
     },
     {
@@ -404,7 +389,6 @@ const quiz =  {
         "Circle",
         "Diamond"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -416,7 +400,6 @@ const quiz =  {
         "Carl the Cat",
         "Cheese Cat"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -428,7 +411,6 @@ const quiz =  {
         "Mer-swish",
         "Sparkle-tail"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -440,7 +422,6 @@ const quiz =  {
         "Pink",
         "Yellow"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -452,7 +433,6 @@ const quiz =  {
         "Spike Kitty",
         "Desert Cat"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -464,7 +444,6 @@ const quiz =  {
         "Balloons",
         "Magic dust"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -476,7 +455,6 @@ const quiz =  {
         "In a pond",
         "In the sky"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -488,7 +466,6 @@ const quiz =  {
         "A book",
         "A costume"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -500,7 +477,6 @@ const quiz =  {
         "Mercat",
         "Pillow Cat"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -512,7 +488,6 @@ const quiz =  {
         "Heart-topped",
         "Moon-topped"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -524,7 +499,6 @@ const quiz =  {
         "\"Purr-fect!\"",
         "\"Cool cat!\""
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -536,7 +510,6 @@ const quiz =  {
         "She flies",
         "She changes colors"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -548,7 +521,6 @@ const quiz =  {
         "In a treehouse",
         "On a farm"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -560,7 +532,6 @@ const quiz =  {
         "Garden",
         "Music room"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -572,7 +543,6 @@ const quiz =  {
         "Mercat",
         "Cheese Cat"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -584,7 +554,6 @@ const quiz =  {
         "Bow",
         "Hat"
       ],
-      "point": "10",
       "correctAnswer": "1"
     },
     {
@@ -596,7 +565,6 @@ const quiz =  {
         "Plastic",
         "Fabric"
       ],
-      "point": "10",
       "correctAnswer": "2"
     },
     {
@@ -608,7 +576,6 @@ const quiz =  {
         "\"Meow-tastic!\"",
         "\"Adventurous!\""
       ],
-      "point": "10",
       "correctAnswer": "3"
     }
   ]

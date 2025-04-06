@@ -7,7 +7,7 @@ const segment = {
 const quiz =  {
   "quizTitle": "Mindcraft",
   "quizSynopsis": "Mindcraft Trivia Game Questions v1",
-  "nrOfQuestions": "20",
+  "nrOfQuestions": "10",
   "defaultPoint": "10",
   "defaultMessageForCorrectAnswer": [
     "Well done, Steve!",
@@ -22,6 +22,7 @@ const quiz =  {
   "questions": [
     {
       "question": "What is the main objective in Minecraft?",
+      "questionPic": "https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png",
       "questionType": "text",
       "answers": [
         "Build the tallest tower",
@@ -55,6 +56,7 @@ const quiz =  {
     },
     {
       "question": "Which mob drops blaze rods?",
+      "questionPic": "https://assets.badlion.net/blog/minecraft-blaze/minecraft-blaze-rod.webp",
       "questionType": "text",
       "answers": [
         "Ghast",
@@ -77,6 +79,7 @@ const quiz =  {
     },
     {
       "question": "What is the strongest tool material in vanilla Minecraft?",
+      "questionPic": "https://static.toiimg.com/thumb/msid-118635860,width-1280,height-720,resizemode-4/118635860.jpg",
       "questionType": "text",
       "answers": [
         "Iron",
@@ -88,6 +91,7 @@ const quiz =  {
     },
     {
       "question": "Which of these blocks cannot be obtained in Survival mode without commands?",
+      "questionPic": "https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png",
       "questionType": "text",
       "answers": [
         "Bedrock",
@@ -99,6 +103,7 @@ const quiz =  {
     },
     {
       "question": "What do you need to breed cows?",
+      "questionPic": "https://preview.redd.it/2-new-cow-variants-have-been-revealed-as-well-as-firefly-v0-0jtau8n6oyfe1.jpg?width=657&format=pjpg&auto=webp&s=ced54dc63348d7fb7d832e613e58588fe12857fe",
       "questionType": "text",
       "answers": [
         "Seeds",
@@ -110,6 +115,7 @@ const quiz =  {
     },
     {
       "question": "Which potion makes you immune to fall damage?",
+      "questionPic": "https://qph.cf2.quoracdn.net/main-qimg-f07ed10121e50ef5c69b921d0f89366d-lq",
       "questionType": "text",
       "answers": [
         "Fire Resistance",
@@ -132,6 +138,7 @@ const quiz =  {
     },
     {
       "question": "Which food restores the most hunger points?",
+      "questionPic": "https://i.redd.it/f9t5l63r2hfb1.png",
       "questionType": "text",
       "answers": [
         "Bread",
