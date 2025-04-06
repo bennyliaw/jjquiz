@@ -233,6 +233,7 @@ function Quiz({
 
       {start && (
         <Core
+          quiz={quiz}
           questions={questions}
           showDefaultResult={showDefaultResult}
           onComplete={onComplete}

@@ -9,7 +9,7 @@ import InstantFeedback from './core-components/InstantFeedback';
 import Explanation from './core-components/Explanation';
 
 function Core({
-  questions, appLocale, showDefaultResult, onComplete, customResultPage,
+  quiz, questions, appLocale, showDefaultResult, onComplete, customResultPage,
   showInstantFeedback, continueTillCorrect, revealAnswerOnSubmit, allowNavigation,
   onQuestionSubmit, timer, allowPauseTimer, enableProgressBar, progressBarColor,
 }) {
@@ -453,6 +453,7 @@ function Core({
                   incorrectAnswer={incorrectAnswer}
                   onQuestionSubmit={onQuestionSubmit}
                   userAnswer={[...userInput].pop()}
+                  quiz={quiz}
                 />
               </div>
               {activeQuestion && renderAnswers(activeQuestion, buttons)}

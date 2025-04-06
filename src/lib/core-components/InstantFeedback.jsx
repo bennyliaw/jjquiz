@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import Explanation from './Explanation';
 
-const renderMessageForCorrectAnswer = (question) => {
+const renderMessageForCorrectAnswer = (question, quiz) => {
   const defaultMessage = 'You are correct. Please click Next to continue.';
-  return question.messageForCorrectAnswer || defaultMessage;
+  return question.messageForCorrectAnswer || quiz.defaultMessageForCorrectAnswer || defaultMessage;
 };
 
-const renderMessageForIncorrectAnswer = (question) => {
+const renderMessageForIncorrectAnswer = (question, quiz) => {
   const defaultMessage = 'Incorrect answer. Please try again.';
-  return question.messageForIncorrectAnswer || defaultMessage;
+  return question.messageForIncorrectAnswer || quiz.defaultMessageForIncorrectAnswer || defaultMessage;
 };
 
 function InstantFeedback({
-  showInstantFeedback, incorrectAnswer, correctAnswer, question, onQuestionSubmit, userAnswer,
+  showInstantFeedback, incorrectAnswer, correctAnswer, question, onQuestionSubmit, userAnswer, quiz,
 }) {
   useEffect(() => {
     if (onQuestionSubmit && (correctAnswer || incorrectAnswer)) {
@@ -23,11 +23,11 @@ function InstantFeedback({
   return (
     <>
       {incorrectAnswer && showInstantFeedback
-            && <div className="alert incorrect">{renderMessageForIncorrectAnswer(question)}</div>}
+            && <div className="alert incorrect">{renderMessageForIncorrectAnswer(question, quiz)}</div>}
       {correctAnswer && showInstantFeedback
             && (
             <div className="alert correct">
-              {renderMessageForCorrectAnswer(question)}
+              {renderMessageForCorrectAnswer(question, quiz)}
               <Explanation question={question} isResultPage={false} />
             </div>
             )}

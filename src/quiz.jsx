@@ -300,16 +300,16 @@ const quiz =  {
 export default quiz;
 
 // {
-//   "question": " ",
-//   "questionType": "text",
-//   "answers": [
-//     " ",
-//     " ",
-//     " ",
-//     " "
-//   ],
-//   "point": "10",
-//   "correctAnswer": "2",
-//   "messageForCorrectAnswer": "You are so clever.",
-//   "messageForIncorrectAnswer": "Incorrect!"
-// },
+//   {
+//     "question": " ",
+//     "questionType": "text",
+//     "answers": [
+//       " ",
+//       " ",
+//       " ",
+//       " "
+//     ],
+//     "point": "10",
+//     "correctAnswer": "2",
+//   },
+// }

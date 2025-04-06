@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Quiz from './lib/Quiz';
-import quiz from './quiz';
+import quiz from './quiz_gabby';
 
 const App = () => {
+  const [quizId, setQuizId] = useState('quiz');
   const [quizResult, setQuizResult] = useState();
 
   return (
