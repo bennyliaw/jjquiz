@@ -55,7 +55,7 @@ function Core({
       let totalPointsTemp = 0;
       let correctPointsTemp = 0;
       for (let i = 0; i < questions.length; i += 1) {
-        let point = questions[i].point || 0;
+        let point = questions[i].point || quiz.defaultPoint
         if (typeof point === 'string' || point instanceof String) {
           point = parseInt(point, 10);
         }
@@ -217,7 +217,7 @@ function Core({
             dangerouslySetInnerHTML={rawMarkup(
               `Q${question.questionIndex}: ${
                 question.question
-              } ${appLocale.marksOfQuestion.replace('<marks>', question.point)}`,
+              } ${appLocale.marksOfQuestion.replace('<marks>', question.point || quiz.defaultPoint)}`,
             )}
           />
           {question.questionPic && (
