@@ -18,6 +18,7 @@ function Quiz({
   disableSynopsis,
   timer,
   allowPauseTimer,
+  practiceMode,
   enableProgressBar,
   setQuizId,
 }) {
@@ -35,7 +36,7 @@ function Quiz({
         () => Math.random() - 0.5,
       );
       const shuffledAnswers = shuffledAnswersWithIndex.map((ans) => ans[0]);
-      if (question.answerSelectionType === 'single') {
+      if (!question.answerSelectionType || question.answerSelectionType === 'single') {
         const oldCorrectAnswer = question.correctAnswer;
         const newCorrectAnswer = shuffledAnswersWithIndex.findIndex(
           (ans) => `${ans[1] + 1}` === `${oldCorrectAnswer}`,
@@ -248,6 +249,7 @@ function Quiz({
           timer={timer}
           allowPauseTimer={allowPauseTimer}
           enableProgressBar={enableProgressBar}
+          practiceMode={practiceMode}
           progressBarColor={quiz.progressBarColor}
           setStart={setStart}
           setQuizId={setQuizId}

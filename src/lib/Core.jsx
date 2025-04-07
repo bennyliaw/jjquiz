@@ -13,7 +13,7 @@ import NavigationIcon from '@mui/icons-material/Navigation';
 function Core({
   quiz, questions, appLocale, showDefaultResult, onComplete, customResultPage,
   showInstantFeedback, continueTillCorrect, revealAnswerOnSubmit, allowNavigation,
-  onQuestionSubmit, timer, allowPauseTimer, enableProgressBar, progressBarColor,
+  onQuestionSubmit, timer, allowPauseTimer, practiceMode, enableProgressBar, progressBarColor,
   setStart, setQuizId
 }) {
   const [incorrectAnswer, setIncorrectAnswer] = useState(false);
@@ -132,7 +132,7 @@ function Core({
       if (answerSelectionType === 'single') {
         // correctAnswer - is string
         answerBtnCorrectClassName = `${index + 1}` === correctAnswer ? 'correct' : '';
-        answerBtnIncorrectClassName = `${userInputIndex}` !== correctAnswer
+        answerBtnIncorrectClassName = !practiceMode && `${userInputIndex}` !== correctAnswer
         && `${index + 1}` === `${userInputIndex}` ? 'incorrect' : '';
 
         if (userInputIndex === undefined && `${index + 1}` !== correctAnswer) {
@@ -140,7 +140,7 @@ function Core({
         }
       } else {
         // correctAnswer - is array of numbers
-        answerBtnCorrectClassName = correctAnswer.includes(index + 1)
+        answerBtnCorrectClassName =  correctAnswer.includes(index + 1)
           ? 'correct'
           : '';
         answerBtnIncorrectClassName = !correctAnswer.includes(index + 1)
@@ -240,6 +240,31 @@ function Core({
     });
   }, [endQuiz, filteredValue]);
 
+  const onPracticeShowAnswer = (question) => {
+    const {
+      answers, correctAnswer, questionType, questionIndex,
+    } = question;
+    let { answerSelectionType } = question;
+
+    checkAnswer(correctAnswer, correctAnswer, answerSelectionType || "single", answers, {
+      userInput,
+      userAttempt,
+      currentQuestionIndex,
+      continueTillCorrect,
+      showNextQuestionButton,
+      incorrect,
+      correct,
+      setButtons,
+      setIsCorrect,
+      setIncorrectAnswer,
+      setCorrect,
+      setIncorrect,
+      setShowNextQuestionButton,
+      setUserInput,
+      setUserAttempt,
+    });
+  }
+
   const renderAnswers = (question, answerButtons) => {
     const {
       answers, correctAnswer, questionType, questionIndex,
@@ -333,7 +358,7 @@ function Core({
       </h2>
       <h2>
         {appLocale.resultPagePoint
-          .replace('<correctPoints>', correctPoints)
+          .replace('<correctPoints>', practiceMode ? "0 (Practice Mode)": correctPoints)
           .replace('<totalPoints>', totalPoints)}
       </h2>
       <br />
@@ -452,7 +477,7 @@ function Core({
                 <InstantFeedback
                   question={activeQuestion}
                   showInstantFeedback={showInstantFeedback}
-                  correctAnswer={isCorrect}
+                  correctAnswer={practiceMode || isCorrect}
                   incorrectAnswer={incorrectAnswer}
                   onQuestionSubmit={onQuestionSubmit}
                   userAnswer={[...userInput].pop()}
@@ -461,6 +486,7 @@ function Core({
                 />
               </div>
               {activeQuestion && renderAnswers(activeQuestion, buttons)}
+              {activeQuestion && practiceMode && !isCorrect && onPracticeShowAnswer(activeQuestion)}
               {(showNextQuestionButton || allowNavigation) && (
                 <div className="questionBtnContainer">
                   {allowNavigation && currentQuestionIndex > 0 && (
