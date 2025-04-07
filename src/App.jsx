@@ -278,8 +278,15 @@ const App = () => {
             JJ Quiz v1.0
             </Typography>
             <FormGroup>
+              <Autocomplete
+                disablePortal
+                options={quizList}
+                sx={{ mb: 3, width: 320 }}
+                renderInput={(params) => <TextField {...params} label="Quiz selection" variant="standard"/>}
+                onChange={(event, newValue)=>setQuizId(newValue)}
+              />
               <TextField label="Number of questions" 
-                sx={{ width: 400 }}
+                sx={{ width: 320 }}
                 type="number" 
                 defaultValue={numberOfQuestions} 
                 variant="standard"
@@ -291,22 +298,15 @@ const App = () => {
               <FormControlLabel control={<Switch checked={continueTillCorrect} onChange={(ev) => setContinueTillCorrect(ev.target.checked)}/>} label="Continue Till Correct?" />
               {/* <FormControlLabel control={<Switch checked={allowPauseTimer} onChange={(ev) => setAllowPauseTimer(ev.target.checked)}/>} label="Allow Pause Timer" /> */}
             </FormGroup>
-            <Autocomplete
-              disablePortal
-              options={quizList}
-              sx={{ width: 400 }}
-              renderInput={(params) => <TextField {...params} label="Quiz selection" variant="standard"/>}
-              onChange={(event, newValue)=>setQuizId(newValue)}
-            />
             <FormGroup>
               <FormLabel sx={{mt:4, mb:1}} component="legend">Special feature (requested by Jacelyn):</FormLabel>
               <FormControlLabel control={<Switch checked={practiceMode} onChange={(ev) => setPracticeMode(ev.target.checked)}/>} label="Practice Mode"/>
               <TextField label="Maximum quiz time" 
                 type="number" 
-                sx={{ width: 400 }}
+                sx={{ mt: 2, width: 320 }}
                 defaultValue={timer} 
                 variant="standard"
-                helperText="in seconds ( or enter 0 for no timer :D as requested by Jacelyn)"
+                helperText="in seconds ( or enter 0 for no timer :D requested by Jacelyn)"
                 onChange={(ev) => setTimer(parseInt(ev.target.value) || 0)}/>
             </FormGroup>
             </Stack>
