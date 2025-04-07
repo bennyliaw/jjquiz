@@ -5,6 +5,9 @@ import quiz_gabby from './quiz_gabby';
 import quiz_pokemon from './quiz_pokemon';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+import Paper from '@mui/material/Paper';
+
+
 
 
 const App = () => {
@@ -15,13 +18,17 @@ const App = () => {
   return (
     <>
       {!quizId && (
-        <Autocomplete
-          disablePortal
-          options={quizList}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="Choose your quiz" />}
-          onChange={(event, newValue)=>setQuizId(newValue)}
-        />
+        <div style={{ margin: 'auto', width: '100%', maxWidth: '480px' }}>
+          <Paper elevation={5} style={{minHeight: '600px'}}>
+            <Autocomplete
+              disablePortal
+              options={quizList}
+              sx={{ width: 300 }}
+              renderInput={(params) => <TextField {...params} label="Choose your quiz" />}
+              onChange={(event, newValue)=>setQuizId(newValue)}
+            />
+          </Paper>
+        </div>
       )}
       {quizId && (
       <div style={{ margin: 'auto', width: '100%', maxWidth: '480px' }}>
@@ -37,6 +44,7 @@ const App = () => {
           timer={120}
           allowPauseTimer
           enableProgressBar
+          setQuizId={setQuizId}
         />
       </div>)}
     </>

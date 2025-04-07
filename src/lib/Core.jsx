@@ -7,11 +7,14 @@ import QuizResultFilter from './core-components/QuizResultFilter';
 import { checkAnswer, selectAnswer, rawMarkup } from './core-components/helpers';
 import InstantFeedback from './core-components/InstantFeedback';
 import Explanation from './core-components/Explanation';
+import Fab from '@mui/material/Fab';
+import NavigationIcon from '@mui/icons-material/Navigation';
 
 function Core({
   quiz, questions, appLocale, showDefaultResult, onComplete, customResultPage,
   showInstantFeedback, continueTillCorrect, revealAnswerOnSubmit, allowNavigation,
   onQuestionSubmit, timer, allowPauseTimer, enableProgressBar, progressBarColor,
+  setStart, setQuizId
 }) {
   const [incorrectAnswer, setIncorrectAnswer] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -490,7 +493,18 @@ function Core({
         </div>
       )}
       {endQuiz && showDefaultResultState && customResultPage === undefined
-          && renderResult()}
+          && 
+          <> {renderResult()}
+          <Fab variant='extended' sx={{
+            position: 'absolute',
+            bottom: 16,
+            right: 16,
+          }} color='secondary'
+          onClick={()=>{ setStart(false); setQuizId(null)}}>
+            <NavigationIcon sx={{ mr: 1 }} /> New Quiz
+          </Fab>
+          </>
+          }
       {endQuiz && !showDefaultResultState && customResultPage !== undefined
           && customResultPage(questionSummary)}
     </div>
