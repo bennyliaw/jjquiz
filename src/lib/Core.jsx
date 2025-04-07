@@ -495,12 +495,10 @@ function Core({
       {endQuiz && showDefaultResultState && customResultPage === undefined
           && 
           <> {renderResult()}
-          <Fab variant='extended' sx={{
-            position: 'absolute',
-            bottom: 16,
-            right: 16,
-          }} color='secondary'
-          onClick={()=>{ setStart(false); setQuizId(null)}}>
+          <Fab variant='extended'
+            color='secondary'
+            onClick={()=>{ setStart(false); setQuizId(null) }}
+          >
             <NavigationIcon sx={{ mr: 1 }} /> New Quiz
           </Fab>
           </>
