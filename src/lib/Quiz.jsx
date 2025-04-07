@@ -20,12 +20,14 @@ function Quiz({
   allowPauseTimer,
   practiceMode,
   enableProgressBar,
+  numberOfQuestions,
   setQuizId,
 }) {
   const [start, setStart] = useState(false);
   const [questions, setQuestions] = useState(quiz.questions);
-  const nrOfQuestions = quiz.nrOfQuestions && quiz.nrOfQuestions < quiz.questions.length
-    ? quiz.nrOfQuestions
+  const inputNumberOfQuestions = numberOfQuestions && numberOfQuestions > 0 ? numberOfQuestions : quiz.nrOfQuestions;
+  const nrOfQuestions = inputNumberOfQuestions && inputNumberOfQuestions < quiz.questions.length
+    ? inputNumberOfQuestions
     : quiz.questions.length;
 
   // Shuffle answers funtion here
@@ -251,6 +253,7 @@ function Quiz({
           enableProgressBar={enableProgressBar}
           practiceMode={practiceMode}
           progressBarColor={quiz.progressBarColor}
+          numberOfQuestions={numberOfQuestions}
           setStart={setStart}
           setQuizId={setQuizId}
         />

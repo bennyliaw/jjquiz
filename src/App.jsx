@@ -22,7 +22,7 @@ import Switch from '@mui/material/Switch';
 const generateMathQuizMult = () => {
   let quiz =  {
     "quizTitle": "Math Quiz Multiplication v1",
-    "quizSynopsis": "Multiplication till 12x12",
+    "quizSynopsis": "Multiplication for numbers till 12",
     "nrOfQuestions" : "10",
     "defaultPoint": "10",
     "defaultMessageForCorrectAnswer": [
@@ -83,7 +83,7 @@ const generateMathQuizMult = () => {
 const generateMathQuizDiv = () => {
   let quiz =  {
     "quizTitle": "Math Quiz Division v1",
-    "quizSynopsis": "Division till 12x12",
+    "quizSynopsis": "Division for numbers till 12",
     "nrOfQuestions" : "10",
     "defaultPoint": "10",
     "defaultMessageForCorrectAnswer": [
@@ -144,7 +144,7 @@ const generateMathQuizDiv = () => {
 const generateMathQuizMultDiv = () => {
   let quiz =  {
     "quizTitle": "Math Quiz Mult and Div v1",
-    "quizSynopsis": "Multiplication amd Division 12x12",
+    "quizSynopsis": "Multiplication amd Division party",
     "nrOfQuestions" : "10",
     "defaultPoint": "10",
     "defaultMessageForCorrectAnswer": [
@@ -230,7 +230,7 @@ const generateMathQuizMultDiv = () => {
 }
 
 const App = () => {
-  const quizList = [ 'pokemon', 'gabby', 'mindcraft', 'multiple_12', 'division_12', 'mult_div_12' ];
+  const quizList = [ 'pokemon', 'gabby', 'mindcraft', 'multiplication', 'division', 'multiplication_and_division' ];
   const [quizId, setQuizId] = useState(null);
   const [quizResult, setQuizResult] = useState();
   const [quiz, setQuiz] = useState(null);
@@ -241,8 +241,8 @@ const App = () => {
   const [allowPauseTimer, setAllowPauseTimer] = useState(true);
   const [practiceMode, setPracticeMode] = useState(false);
   const [timer, setTimer] = useState(60);
+  const [numberOfQuestions, setNumberOfQuestions] = useState(10);
   
-
   useEffect(() => {
     if (quizId === 'pokemon')
       setQuiz(quiz_pokemon)
@@ -250,11 +250,11 @@ const App = () => {
       setQuiz(quiz_gabby)
     else if (quizId === 'mindcraft')
       setQuiz(quiz_mindcraft)
-    else if (quizId === 'multiple_12')
+    else if (quizId === 'multiplication')
       setQuiz(generateMathQuizMult())
-    else if (quizId === 'division_12')
+    else if (quizId === 'division')
       setQuiz(generateMathQuizDiv())
-    else if (quizId === 'mult_div_12')
+    else if (quizId === 'multiplication_and_division')
       setQuiz(generateMathQuizMultDiv())
     else
       setQuiz(null)
@@ -277,32 +277,37 @@ const App = () => {
             <Typography variant="h2" gutterBottom>
             JJ Quiz v1.0
             </Typography>
-            {/* <FormLabel component="legend">Quiz selection</FormLabel> */}
-            <Autocomplete
-              disablePortal
-              options={quizList}
-              sx={{ width: 300 }}
-              renderInput={(params) => <TextField {...params} label="Quiz selection" variant="standard"/>}
-              onChange={(event, newValue)=>setQuizId(newValue)}
-            />
             <FormGroup>
-              <FormLabel sx={{mt:4, mb:1}} component="legend">Quiz options:</FormLabel>
-              <TextField label="Maximum quiz time" 
+              <TextField label="Number of questions" 
+                sx={{ width: 400 }}
                 type="number" 
-                defaultValue={timer} 
+                defaultValue={numberOfQuestions} 
                 variant="standard"
-                helperText="in seconds ( or enter 0 for no timer :D as requested by Jacelyn)"
-                onChange={(ev) => setTimer(parseInt(ev.target.value) || 0)}/>
-
+                onChange={(ev) => setNumberOfQuestions(parseInt(ev.target.value) || 10)}/>
+              <FormLabel sx={{mt:4, mb:1}} component="legend">Quiz options:</FormLabel>
               <FormControlLabel control={<Switch checked={shuffle} onChange={(ev) => setShuffle(ev.target.checked)} />} label="Shuffle Questions" />
               <FormControlLabel control={<Switch checked={shuffleAnswer} onChange={(ev) => setShuffleAnswer(ev.target.checked)}/>} label="Shuffle Answers" />
               {/* <FormControlLabel control={<Switch checked={showInstantFeedback} onChange={(ev) => setShowInstantFeedback(ev.target.checked)}/>} label="Show Instant Feedback" /> */}
               <FormControlLabel control={<Switch checked={continueTillCorrect} onChange={(ev) => setContinueTillCorrect(ev.target.checked)}/>} label="Continue Till Correct?" />
               {/* <FormControlLabel control={<Switch checked={allowPauseTimer} onChange={(ev) => setAllowPauseTimer(ev.target.checked)}/>} label="Allow Pause Timer" /> */}
             </FormGroup>
+            <Autocomplete
+              disablePortal
+              options={quizList}
+              sx={{ width: 400 }}
+              renderInput={(params) => <TextField {...params} label="Quiz selection" variant="standard"/>}
+              onChange={(event, newValue)=>setQuizId(newValue)}
+            />
             <FormGroup>
               <FormLabel sx={{mt:4, mb:1}} component="legend">Special feature (requested by Jacelyn):</FormLabel>
               <FormControlLabel control={<Switch checked={practiceMode} onChange={(ev) => setPracticeMode(ev.target.checked)}/>} label="Practice Mode"/>
+              <TextField label="Maximum quiz time" 
+                type="number" 
+                sx={{ width: 400 }}
+                defaultValue={timer} 
+                variant="standard"
+                helperText="in seconds ( or enter 0 for no timer :D as requested by Jacelyn)"
+                onChange={(ev) => setTimer(parseInt(ev.target.value) || 0)}/>
             </FormGroup>
             </Stack>
             </Box>
@@ -327,6 +332,7 @@ const App = () => {
           // revealAnswerOnSubmit={true}
           practiceMode={practiceMode}
           enableProgressBar
+          numberOfQuestions={numberOfQuestions}
           setQuizId={setQuizId}
         />
       </div>)}
