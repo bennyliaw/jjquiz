@@ -280,7 +280,7 @@ const App = () => {
           <Paper elevation={3} sx={{ width: '100%', height: '100%' }}> 
             <Box p={2}>
             <Stack spacing={1}>
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h3" gutterBottom>
             JJ Quiz v1.0
             </Typography>
             <FormGroup>
