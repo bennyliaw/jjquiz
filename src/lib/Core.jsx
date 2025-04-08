@@ -240,12 +240,19 @@ function Core({
     });
   }, [endQuiz, filteredValue]);
 
-  const onPracticeShowAnswer = (question) => {
+  const onPracticeShowAnswer = (question, answerButtons) => {
     const {
       answers, correctAnswer, questionType, questionIndex,
     } = question;
     let { answerSelectionType } = question;
-
+    console.log("question: ", question);
+    console.log("correctAnswer: ", correctAnswer);
+    console.log("questionType: ", correctAnswer);
+    console.log("questionIndex: ", questionIndex);
+    console.log("answerSelectionType: ", answerSelectionType);
+    console.log("userInput: ", userInput);
+    console.log("userAttempt: ", userAttempt);
+    setTimeout(()=>
     checkAnswer(correctAnswer, correctAnswer, answerSelectionType || "single", answers, {
       userInput,
       userAttempt,
@@ -262,7 +269,7 @@ function Core({
       setShowNextQuestionButton,
       setUserInput,
       setUserAttempt,
-    });
+    }),10);
   }
 
   const renderAnswers = (question, answerButtons) => {
@@ -486,7 +493,7 @@ function Core({
                 />
               </div>
               {activeQuestion && renderAnswers(activeQuestion, buttons)}
-              {activeQuestion && practiceMode && !isCorrect && onPracticeShowAnswer(activeQuestion)}
+              {activeQuestion && practiceMode && !isCorrect && onPracticeShowAnswer(activeQuestion, buttons)}
               {(showNextQuestionButton || allowNavigation) && (
                 <div className="questionBtnContainer">
                   {allowNavigation && currentQuestionIndex > 0 && (

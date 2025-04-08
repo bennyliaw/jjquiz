@@ -3,6 +3,8 @@ import Quiz from './lib/Quiz';
 import quiz_mindcraft from './quiz_mindcraft';
 import quiz_gabby from './quiz_gabby';
 import quiz_pokemon from './quiz_pokemon';
+import quiz_countryflag5 from './quiz_countryflag5';
+import quiz_countryflag50 from './quiz_countryflag50';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Stack from "@mui/material/Stack";
@@ -230,7 +232,7 @@ const generateMathQuizMultDiv = () => {
 }
 
 const App = () => {
-  const quizList = [ 'pokemon', 'gabby', 'mindcraft', 'multiplication', 'division', 'multiplication_and_division' ];
+  const quizList = [ 'pokemon', 'gabby', 'mindcraft', 'countryflag5', 'countryflag50', 'multiplication', 'division', 'multiplication_and_division' ];
   const [quizId, setQuizId] = useState(null);
   const [quizResult, setQuizResult] = useState();
   const [quiz, setQuiz] = useState(null);
@@ -250,6 +252,10 @@ const App = () => {
       setQuiz(quiz_gabby)
     else if (quizId === 'mindcraft')
       setQuiz(quiz_mindcraft)
+    else if (quizId === 'countryflag5')
+      setQuiz(quiz_countryflag5)
+    else if (quizId === 'countryflag50')
+      setQuiz(quiz_countryflag50)
     else if (quizId === 'multiplication')
       setQuiz(generateMathQuizMult())
     else if (quizId === 'division')
@@ -264,7 +270,7 @@ const App = () => {
     <>
       {!quizId && (
          <Container maxWidth="sm">
-          <Box sx={{ p: '10px', bgcolor: '#cfe8fc', height: '95vh' }}>
+          <Box sx={{ p: '5px', bgcolor: '#cfe8fc', height: '95vh' }}>
           <Stack
       direction="row"
       justifyContent="center"
@@ -281,12 +287,12 @@ const App = () => {
               <Autocomplete
                 disablePortal
                 options={quizList}
-                sx={{ mb: 3, width: 320 }}
+                sx={{ mb: 3, width: 300 }}
                 renderInput={(params) => <TextField {...params} label="Quiz selection" variant="standard"/>}
                 onChange={(event, newValue)=>setQuizId(newValue)}
               />
               <TextField label="Number of questions" 
-                sx={{ width: 320 }}
+                sx={{ width: 300 }}
                 type="number" 
                 defaultValue={numberOfQuestions} 
                 variant="standard"
@@ -303,7 +309,7 @@ const App = () => {
               <FormControlLabel control={<Switch checked={practiceMode} onChange={(ev) => setPracticeMode(ev.target.checked)}/>} label="Practice Mode"/>
               <TextField label="Maximum quiz time" 
                 type="number" 
-                sx={{ mt: 2, width: 320 }}
+                sx={{ mt: 2, width: 300 }}
                 defaultValue={timer} 
                 variant="standard"
                 helperText="in seconds ( or enter 0 for no timer :D requested by Jacelyn)"
