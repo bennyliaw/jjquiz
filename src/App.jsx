@@ -246,6 +246,18 @@ const App = () => {
   const [numberOfQuestions, setNumberOfQuestions] = useState(10);
 
   const cloneQuiz = (q) => JSON.parse(JSON.stringify(q));
+
+  const preventRefresh = (ev) => {
+    ev.preventDefault();
+  };
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', preventRefresh);
+
+    return () => {
+        window.removeEventListener('beforeunload', preventRefresh);
+    }
+  }, [])
   
   useEffect(() => {
     if (quizId === 'pokemon')
