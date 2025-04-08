@@ -244,24 +244,26 @@ const App = () => {
   const [practiceMode, setPracticeMode] = useState(false);
   const [timer, setTimer] = useState(60);
   const [numberOfQuestions, setNumberOfQuestions] = useState(10);
+
+  const cloneQuiz = (q) => JSON.parse(JSON.stringify(q));
   
   useEffect(() => {
     if (quizId === 'pokemon')
-      setQuiz(quiz_pokemon)
+      setQuiz(cloneQuiz(quiz_pokemon))
     else if (quizId === 'gabby')
-      setQuiz(quiz_gabby)
+      setQuiz(cloneQuiz(quiz_gabby))
     else if (quizId === 'mindcraft')
-      setQuiz(quiz_mindcraft)
+      setQuiz(cloneQuiz(quiz_mindcraft))
     else if (quizId === 'countryflag5')
-      setQuiz(quiz_countryflag5)
+      setQuiz(cloneQuiz(quiz_countryflag5))
     else if (quizId === 'countryflag50')
-      setQuiz(quiz_countryflag50)
+      setQuiz(cloneQuiz(quiz_countryflag50))
     else if (quizId === 'multiplication')
-      setQuiz(generateMathQuizMult())
+      setQuiz(cloneQuiz(generateMathQuizMult()))
     else if (quizId === 'division')
-      setQuiz(generateMathQuizDiv())
+      setQuiz(cloneQuiz(generateMathQuizDiv()))
     else if (quizId === 'multiplication_and_division')
-      setQuiz(generateMathQuizMultDiv())
+      setQuiz(cloneQuiz(generateMathQuizMultDiv()))
     else
       setQuiz(null)
   }, [quizId]);

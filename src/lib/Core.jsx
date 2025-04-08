@@ -269,7 +269,7 @@ function Core({
       setShowNextQuestionButton,
       setUserInput,
       setUserAttempt,
-    }),10);
+    }), 100);
   }
 
   const renderAnswers = (question, answerButtons) => {
